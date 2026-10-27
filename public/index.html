@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salesforce Log Search</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Salesforce Log Search</h1>
+    <div id="status" class="muted"></div>
+    <button id="reindex" type="button">Rescan folder</button>
+  </header>
+
+  <div class="layout">
+    <main>
+      <form id="search-form">
+        <input id="query" type="search" placeholder="Search every column, e.g. appointment" autocomplete="off" required>
+        <select id="file" aria-label="File">
+          <option value="">All files</option>
+        </select>
+        <select id="limit" aria-label="Maximum results">
+          <option value="100">100 results</option>
+          <option value="500" selected>500 results</option>
+          <option value="2000">2000 results</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+
+      <div id="error" class="error" hidden></div>
+      <div id="summary" class="muted"></div>
+      <section id="results"></section>
+    </main>
+
+    <aside>
+      <div class="history-head">
+        <h2>History</h2>
+        <button id="clear-history" type="button">Clear</button>
+      </div>
+      <ul id="history" class="history"></ul>
+
+      <h2>Files</h2>
+      <ul id="files" class="files"></ul>
+    </aside>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
